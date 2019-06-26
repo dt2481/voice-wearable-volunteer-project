@@ -58,18 +58,33 @@ Teensy Audio Library
 
 CODE:
 Utils.py -Contains functions for converting raw audio data into windowed, downsampled fast fourier transform vectors
+
 cmi_rnn_vad.ipnyb -Ipython notebook with examples for executing Voice Activity Classification on saved wav files or fft input from teensy devkit. 
+
 Recorded Data folder
+
 Bus_stop.mat
+
 Bus_stop.wav
+
 Construction_site.mat
+
 Construction_site.wav
+
 Park.mat
+
 Park.wav
+
 Room.mat
+
 room.wav
+
 Weights folder
+
 my_model
+
 checkpoint
+
 my_model.data-00000-of-00001
+
 my_model.index
