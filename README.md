@@ -34,16 +34,25 @@ From there, the model can be trained and an accuracy can be outputted. The user 
 
 Hardware:
 Teensy dev kit
+
 SGTL-5000 DSP chip
 
 Software:
+
 Python Libraries:
+
 Tensorflow
+
 Numpy
+
 Scipy
+
 Os
+
 Time
+
 csv
+
 Arduino Libraries:
 Teensy Audio Library
 
