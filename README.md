@@ -2,7 +2,7 @@
 For the purpose of voice activity detection and voice distinction tasks, this package uses a trained multilayer perceptron to identify voice features.  Pre-trained weights are provided, but the network can be easily changed and retrained with any data that the user would like to use. 
 
  
-CLASSIFICATION:
+# CLASSIFICATION:
 
 
 Input: The input can be in 1 of 2 forms. Either  raw audio from wav files with the associated sample rate, or the path to a csv file containing the copy and pasted serial monitor output of the modified fft example from the teensy audio library.
@@ -22,7 +22,7 @@ The preprocessed data can be input to multilayer perceptron for classification. 
 
 
 
-TRAINING:
+# TRAINING:
 
 For preprocessing use the appropriate vectorize function and switch the positional argument training = TRUE., and include the labels. This will perform the same steps as noted above, but each set of 15 vectors will be matched with the appropriate label.
 
@@ -32,12 +32,12 @@ From there, the model can be trained and an accuracy can be outputted. The user 
 
 
 
-Hardware:
+# Hardware:
 Teensy dev kit
 
 SGTL-5000 DSP chip
 
-Software:
+# Software:
 
 Python Libraries:
 
@@ -56,7 +56,7 @@ csv
 Arduino Libraries:
 Teensy Audio Library
 
-CODE:
+# CODE:
 Utils.py -Contains functions for converting raw audio data into windowed, downsampled fast fourier transform vectors
 
 cmi_rnn_vad.ipnyb -Ipython notebook with examples for executing Voice Activity Classification on saved wav files or fft input from teensy devkit. 
