@@ -7,7 +7,7 @@ import csv
 
 def vectorize(audio,rate,window_size,group_size = 3, full = False,training = False, labels = np.array([]), serial = False):
     '''
-    windows and vectorizes input data, then combined together input vectors into groups determined by group_size while retaining the correct ordering. The labels for the combined data is 1 if any of the labels within those windows were 1. If full = True the remaining tail of data will be kept after windowing is performed. If training = true, label data needs to be input. if serial = true, the output will be every sequenctial grouping of the vectors. 
+    windows and vectorizes input data, then combines together input vectors into groups determined by group_size while retaining the correct ordering. The labels for the combined data is 1 if any of the labels within those windows were 1. If full = True the remaining tail of data will be kept after windowing is performed. If training = true, label data needs to be input. if serial = true, the output will be every sequenctial grouping of the vectors. 
     
     inputs: 
     audio = audio input as an array
@@ -30,7 +30,7 @@ def vectorize(audio,rate,window_size,group_size = 3, full = False,training = Fal
                                   
     
     outputs:
-    data = matrix of windowed ffts for samples of signal determined by window_size. Each fft is split into 5 bins whithin the voice range(80-3000) which are averaged to create 5d vectors for each window. These vectors are then bunched into groups determined by group_size
+    data = matrix of windowed ffts for samples of signal determined by window_size. Each fft is split into 5 bins within the voice range(80-3000) which are averaged to create 5d vectors for each window. These vectors are then bunched into groups determined by group_size
     
     labels = if training = True, downsampled labels to have the same number of entries as data
     '''
