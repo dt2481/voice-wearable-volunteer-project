@@ -75,11 +75,11 @@ def vectorize(audio,rate,window_size,group_size = 3, full = False,training = Fal
     data = np.zeros((len(audio),5)) #create empty data array
     for i in range(len(audio)): 
         fft = abs(np.fft.fft(audio[i])) #fft on windowed sample
-        freq = np.fft.fftfreq(fft.shape[-1] ,1/rate) #determine bin size for fft
-        scale = freq[1]
+        N = fft.shape[0]
+        scale = rate/N #determine fft bin size
         
         
-        fft = fft[int(80/scale):int(3000/scale)] #cut fft to range between 80 and 3000hz
+        fft = fft[int(80/scale):int(4000/scale)] #cut fft to range between 80 and 4000hz
         num_windows = 5
         window_size = len(fft) // num_windows
         
