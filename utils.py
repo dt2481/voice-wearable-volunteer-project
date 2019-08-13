@@ -30,7 +30,7 @@ def vectorize(audio,rate,window_size,group_size = 3, full = False,training = Fal
                                   
     
     outputs:
-    data = matrix of windowed ffts for samples of signal determined by window_size. Each fft is split into 5 bins within the voice range(80-3000) which are averaged to create 5d vectors for each window. These vectors are then bunched into groups determined by group_size
+    data = matrix of windowed and averaged fft vectors for samples of signal determined by window_size. Each fft is split into 5 bins within the voice range(80-4000) which are averaged to create 5d vectors for each window. These vectors are then bunched into groups determined by group_size
     
     labels = if training = True, downsampled labels to have the same number of entries as data
     '''
@@ -76,10 +76,11 @@ def vectorize(audio,rate,window_size,group_size = 3, full = False,training = Fal
     for i in range(len(audio)): 
         fft = abs(np.fft.fft(audio[i])) #fft on windowed sample
         N = fft.shape[0]
+        fft = fft[int(N/2):N]
         scale = rate/N #determine fft bin size
         
         
-        fft = fft[int(80/scale):int(4000/scale)] #cut fft to range between 80 and 4000hz
+        fft = fft[int(80/scale):int(5000/scale)] #cut fft to range between 80 and 5000hz
         num_windows = 5
         window_size = len(fft) // num_windows
         
