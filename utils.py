@@ -72,7 +72,8 @@ def vectorize(audio,rate,window_size,group_size = 3, full = False,training = Fal
     
     
     #perform fft and averaging on each window
-    data = np.zeros((len(audio),5)) #create empty data array
+    num_windows = 8
+    data = np.zeros((len(audio),num_windows)) #create empty data array
     for i in range(len(audio)): 
         fft = abs(np.fft.fft(audio[i])) #fft on windowed sample
         N = fft.shape[0]
@@ -81,12 +82,13 @@ def vectorize(audio,rate,window_size,group_size = 3, full = False,training = Fal
         
         
         fft = fft[int(80/scale):int(5000/scale)] #cut fft to range between 80 and 5000hz
-        num_windows = 5
+        #num_windows = 5
         window_size = len(fft) // num_windows
         
         fft = np.split(fft[0:int(num_windows*window_size)],num_windows) #split fft into 5 windows of equal size
         
         new_entry = np.round(np.array( [np.mean(i) for i in fft] ) ) #round each window to get a 5d vector
+        #new_entry[:2] = 0
         data[i,:] = new_entry
         
         
